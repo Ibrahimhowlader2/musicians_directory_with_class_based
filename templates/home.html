@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Welcome to the Home Page</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Musician Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Instrument Type</th>
+                    <th scope="col">Album Name</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Ratings</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ item.musician.first_name }} {{ item.musician.last_name }}</td>
+                    <td>{{ item.musician.email }}</td>
+                    <td>{{ item.musician.instrument_type }}</td>
+                    <td>{{ item.AlbumName }}</td>
+                    <td>{{ item.release_date }}</td>
+                    <td>{{ item.ratings }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
